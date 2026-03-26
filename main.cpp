@@ -1,20 +1,13 @@
-﻿#include "mainwindow.h"
-
-#include <QApplication>
-#include <QWaiting.h>
-#include <mythread.h>
+﻿#include <QApplication>
+#include <WatchWidget.h>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
+    WatchWidget watch;
 
-    MyThread* thread = new MyThread;
-    thread->start();
-    QEventLoop loop;
-    QWaiting waiting;
-    waiting.show();
-    loop.exec();
+    watch.show();
 
     return a.exec();
 }

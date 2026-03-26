@@ -24,18 +24,21 @@ SOURCES += \
     mainwindow.cpp \
     mythread.cpp \
     qwaiting.cpp \
-    selfbutton.cpp
+    selfbutton.cpp \
+    watchwidget.cpp
 
 HEADERS += \
     audioinfo.h \
     mainwindow.h \
     mythread.h \
     qwaiting.h \
-    selfbutton.h
+    selfbutton.h \
+    watchwidget.h
 
 FORMS += \
     mainwindow.ui \
-    qwaiting.ui
+    qwaiting.ui \
+    watchwidget.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
