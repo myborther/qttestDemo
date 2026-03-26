@@ -15,8 +15,8 @@ MyThread::MyThread(QObject *parent)
 		speed = 0;
 	});
 
-	connect(this, &QThread::started, this, [=]() {	
-		testTimer->start(1000);
+    connect(this, &QThread::started, this, [=]() {
+        testTimer->start(1000);
 	});
 }
 
@@ -25,8 +25,8 @@ MyThread::~MyThread()
 
 void MyThread::run()
 {
-
-	while (1) {
+    timeBeginPeriod(1);
+    while (1) {
         msleep(1); // ms
 		speed++;
 	}

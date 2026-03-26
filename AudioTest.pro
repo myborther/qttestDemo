@@ -16,6 +16,8 @@ INCLUDEPATH += $$PWD/smb2/include
 LIBS += -L$$PWD/smb2/lib -lsmb2 \
         -luser32
 
+LIBS += -lwinmm
+
 SOURCES += \
     audioinfo.cpp \
     main.cpp \
