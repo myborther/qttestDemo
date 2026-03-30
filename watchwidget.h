@@ -17,6 +17,12 @@ public:
     explicit WatchWidget(QWidget *parent = nullptr);
     ~WatchWidget();
 
+private:
+    /// 画表针
+    void drawSecond(QPainter& painter, int second);
+    void drawMinute();
+    void drawHour();
+
 protected:
     void paintEvent(QPaintEvent* e) override;
     void showEvent(QShowEvent* e) override;
@@ -28,6 +34,7 @@ private:
 
     bool m_MousePress = false;
     QPoint m_PressPoint;
+
 };
 
 #endif // WATCHWIDGET_H

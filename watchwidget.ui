@@ -25,19 +25,7 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0">
-    <widget class="QWidget" name="mainWidget" native="true">
-     <property name="styleSheet">
-      <string notr="true">QWidget#mainWidget{
-	border-radius: 20px;
-	border: 1px solid #c8c8c8;
-	background:#33FFFFFF;
-}</string>
-     </property>
-    </widget>
-   </item>
-  </layout>
+  <layout class="QGridLayout" name="gridLayout"/>
  </widget>
  <resources/>
  <connections/>

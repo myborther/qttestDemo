@@ -20,6 +20,7 @@ LIBS += -lwinmm
 
 SOURCES += \
     audioinfo.cpp \
+    dateshortcutkey.cpp \
     main.cpp \
     mainwindow.cpp \
     mythread.cpp \
@@ -29,6 +30,7 @@ SOURCES += \
 
 HEADERS += \
     audioinfo.h \
+    dateshortcutkey.h \
     mainwindow.h \
     mythread.h \
     qwaiting.h \
