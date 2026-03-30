@@ -20,8 +20,8 @@ public:
 private:
     /// 画表针
     void drawSecond(QPainter& painter, int second);
-    void drawMinute();
-    void drawHour();
+    void drawMinute(QPainter& painter, int minute);
+    void drawHour(QPainter& painter, int hour, int minute);
 
 protected:
     void paintEvent(QPaintEvent* e) override;

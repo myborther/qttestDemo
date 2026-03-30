@@ -16,10 +16,6 @@ WatchWidget::WatchWidget(QWidget *parent)
     // 无边框
     setWindowFlags(Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
 
-    // 透明
-    //setAttribute(Qt::WA_TranslucentBackground);
-    //setStyleSheet("background-color: transparent;");
-
     // 边框
     QGraphicsDropShadowEffect *shadow = new QGraphicsDropShadowEffect(this);
     shadow->setOffset(0);
@@ -65,20 +61,46 @@ void WatchWidget::drawSecond(QPainter& painter,int second)
     painter.restore();
 }
 
-///
-/// \brief WatchWidget::drawMinute 画分
-///
-void WatchWidget::drawMinute()
+void WatchWidget::drawMinute(QPainter &painter, int minute)
 {
+    painter.save();
 
+    painter.setPen(QPen(QColor("#6a9641"),2));
+
+    QPoint center(width() / 2,height() / 2);
+
+    painter.translate(center);
+
+    int rotute = minute * 6 - 180;
+
+    int radius = width() / 2 - 25;
+
+    painter.rotate(rotute);
+
+    painter.drawLine(0,0,0,radius);
+
+    painter.restore();
 }
 
-///
-/// \brief WatchWidget::drawHour 画时针
-///
-void WatchWidget::drawHour()
+void WatchWidget::drawHour(QPainter &painter, int hour, int minute)
 {
+    painter.save();
 
+    painter.setPen(QPen(QColor("#965050"),2));
+
+    QPoint center(width() / 2,height() / 2);
+
+    painter.translate(center);
+
+    int rotute = hour * 30 - 180 + minute * 0.5;
+
+    int radius = width() / 2 - 35;
+
+    painter.rotate(rotute);
+
+    painter.drawLine(0,0,0,radius);
+
+    painter.restore();
 }
 
 ///
@@ -166,7 +188,27 @@ void WatchWidget::paintEvent(QPaintEvent*)
     painter.restore();
 
     /// 画秒针
-    drawSecond(painter,QDateTime::currentSecsSinceEpoch());
+    drawSecond(painter,QDateTime::currentDateTime().time().second());
+    drawMinute(painter,QDateTime::currentDateTime().time().minute());
+    drawHour(painter,QDateTime::currentDateTime().time().hour(),
+                    QDateTime::currentDateTime().time().minute());
+
+    /// 写数字
+    painter.save();
+
+    QFont font;
+
+    font.setPixelSize(24);
+
+    font.setBold(true);
+
+    painter.setFont(font);
+
+    painter.setPen(QPen(QColor("#88888888"),1));
+
+    painter.drawText(center,QDateTime::currentDateTime().time().toString("hh:mm:ss"));
+
+    painter.restore();
 }
 
 ///
