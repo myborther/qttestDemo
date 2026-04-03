@@ -23,6 +23,7 @@ SOURCES += \
     dateshortcutkey.cpp \
     main.cpp \
     mainwindow.cpp \
+    markdowntransform.cpp \
     mythread.cpp \
     qwaiting.cpp \
     selfbutton.cpp \
@@ -32,6 +33,7 @@ HEADERS += \
     audioinfo.h \
     dateshortcutkey.h \
     mainwindow.h \
+    markdowntransform.h \
     mythread.h \
     qwaiting.h \
     selfbutton.h \

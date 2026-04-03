@@ -121,7 +121,7 @@ void WatchWidget::paintEvent(QPaintEvent*)
 
     QRectF rect(0,0,width(),width());
 
-    painter.drawRoundedRect(rect,25,25);
+    painter.drawRoundedRect(rect,0,0);
 
     painter.restore();
 
